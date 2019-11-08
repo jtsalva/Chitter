@@ -3,6 +3,12 @@ require 'config'
 require 'store'
 
 describe User do
+  before(:all) do
+    config = Config.new('/Users/jaetimothysalva/projects/chitter/config.json')
+    config.init_test_credentials
+    Store.init config.test_project_id
+  end
+
   subject { User.new(username: username, name: name, email: email) }
   let(:username) { 'jtsalva' }
   let(:name) { 'Tim' }
@@ -23,12 +29,6 @@ describe User do
   end
 
   describe 'database actions' do
-    before(:all) do
-      config = Config.new('/Users/jaetimothysalva/projects/chitter/config.json')
-      config.init_test_credentials
-      Store.init config.test_project_id
-    end
-
     before(:each) do
       User.clear
     end
