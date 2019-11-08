@@ -13,7 +13,7 @@ class Peep
 
   def self.all
     all = []
-    Store.all(COLLECTION) do |peep|
+    Store.all(COLLECTION, order_by_creation: :desc) do |peep|
       all << Peep.new(
         text: peep[:text],
         author: peep[:author],

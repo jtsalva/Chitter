@@ -41,6 +41,28 @@ class User
     set(user)
   end
 
+  def self.set_password(user, password)
+    Store.set(
+        COLLECTION,
+        ref: user.username,
+        password: password
+    )
+  end
+
+  def self.authenticate(username, password)
+    user = Store.get(COLLECTION, ref: username)
+    p user
+    if user.exists? and user[:password] == password
+      User.new(
+        username: user[:username],
+        name: user[:name],
+        email: user[:email]
+      )
+    else
+      nil
+    end
+  end
+
   def self.delete(user)
     ref = if user.is_a? User
             user.username
