@@ -97,4 +97,10 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  require File.join(File.dirname(__FILE__), '..', 'chitter.rb')
+  require 'capybara'
+  require 'capybara/rspec'
+  require 'rspec'
+  Capybara.app = Chitter
 end
