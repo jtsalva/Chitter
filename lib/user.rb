@@ -47,7 +47,8 @@ class User
         ref: user.username,
         username: user.username,
         name: user.name,
-        email: user.email
+        email: user.email,
+        password: password
     )
   end
 
