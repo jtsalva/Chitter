@@ -19,7 +19,7 @@ feature 'user sign in' do
     User.add(new_user)
     User.set_password(new_user, password)
 
-    visit('/sign-in')
+    visit '/sign-in'
     fill_in 'username', with: username
     fill_in 'password', with: password
 
