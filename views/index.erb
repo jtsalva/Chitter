@@ -1,9 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Chitter</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/index.css" />
 </head>
 <body>
-	<h1>Chitter</h1>
+<div id="app" class="container teal lighten-2">
+	<nav>
+		<div class="nav-wrapper ">
+			<a href="/" class="brand-logo"> Chitter</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="/sign-in">Sign In</a></li>
+				<li><a href="/register">Register</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div id="peeps" class="container">
+		<div class="row">
+			<div class="col s12">
+				<textarea form="new-peep" name="text" class="materialize-textarea" data-length="120"></textarea>
+				<form id="new-peep" action="/new-peep" method="post">
+					<input id="submit-new-peep" type="submit" class="waves-effect waves-light btn" value="Peep" />
+				</form>
+			</div>
+		</div>
+
+		<%  @peeps.each do |peep| %>
+			<div class="row">
+				<div class="card peep col s10 offset-s1">
+					<p class="author"><%= peep.author %></p>
+					<span class="card-title"><p class="text"><%= peep.text %></p></span>
+					<p class="created-at"><%= peep.created_at %></p>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('textarea.materialize-textarea').characterCounter();
+	});
+</script>
 </body>
 </html>
