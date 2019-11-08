@@ -4,7 +4,7 @@ class Peep
   attr_reader :id
   attr_accessor :text, :author, :created_at
 
-  def initialize(text:, author:, created_at: Time.now.utc, id: nil)
+  def initialize(text:, author:, created_at: Store.timestamp, id: nil)
     @text = text
     @author = author
     @created_at = created_at
