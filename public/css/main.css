@@ -3,3 +3,7 @@
 body {
     font-family: 'Roboto';
 }
+
+nav {
+    padding-left: 20px;
+}
