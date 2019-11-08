@@ -45,7 +45,9 @@ class User
     Store.set(
         COLLECTION,
         ref: user.username,
-        password: password
+        username: user.username,
+        name: user.name,
+        email: user.email
     )
   end
 
