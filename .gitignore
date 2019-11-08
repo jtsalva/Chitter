@@ -1,3 +1,2 @@
 .idea/*
-config.json
-firestore_credentials.json
+*.json
