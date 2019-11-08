@@ -33,6 +33,9 @@ class Chitter < Sinatra::Base
 	end
 
 	get '/sign-in' do
+		unless session[:user].nil?
+			redirect '/'
+		end
 		erb :sign_in
 	end
 
