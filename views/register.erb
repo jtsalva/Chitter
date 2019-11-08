@@ -2,18 +2,34 @@
 <html lang="en">
 <head>
   <title>Chitter | Register</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="/css/main.css" />
 </head>
 <body>
-<div id="app">
-  <h1>Register for Chitter</h1>
-  <form id="new-user" action="/register" method="post">
-    <input name="name" type="text" placeholder="Johny" />
-    <input name="username" type="text" placeholder="bigBoyJohny" />
-    <input name="email" type="text" placeholder="johny.big@bigboys.com" />
-    <input name="password" type="password" placeholder="password" />
-    <input type="submit" />
-  </form>
+<div id="app" class="container">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo"> Chitter</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/sign-in">Sign In</a></li>
+        <li><a href="/register">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col s10 offset-s1">
+      <h1>Register for Chitter</h1>
+      <form id="new-user" action="/register" method="post" class="input-field">
+        <input name="name" type="text" placeholder="name" />
+        <input name="username" type="text" placeholder="username" />
+        <input name="email" type="text" placeholder="email" />
+        <input name="password" type="password" placeholder="password" />
+        <input name="submit" type="submit" class="waves-effect waves-light btn red lighten-2" value="register" />
+      </form>
+    </div>
+  </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

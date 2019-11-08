@@ -7,22 +7,27 @@
 	<link rel="stylesheet" href="/css/index.css" />
 </head>
 <body>
-<div id="app" class="container teal lighten-2">
+<div id="app" class="container">
 	<nav>
 		<div class="nav-wrapper ">
 			<a href="/" class="brand-logo"> Chitter</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="/sign-in">Sign In</a></li>
-				<li><a href="/register">Register</a></li>
+				<% if @user.nil? %>
+				<li><a id="sign-in" href="/sign-in">Sign In</a></li>
+				<li><a id="register"  href="/register">Register</a></li>
+				<% else %>
+					<li><a href="#"><%= @user.username %></a></li>
+					<li><a id="sign-out"  href="/sign-out">Sign Out</a></li>
+				<% end %>
 			</ul>
 		</div>
 	</nav>
 	<div id="peeps" class="container">
 		<div class="row">
 			<div class="col s12">
-				<textarea form="new-peep" name="text" class="materialize-textarea" data-length="120"></textarea>
+				<textarea form="new-peep" name="text" class="materialize-textarea" data-length="120" placeholder="My peeps..."></textarea>
 				<form id="new-peep" action="/new-peep" method="post">
-					<input id="submit-new-peep" type="submit" class="waves-effect waves-light btn" value="Peep" />
+					<input name="submit" id="submit-new-peep" type="submit" class="waves-effect waves-light btn pink red lighten-2" value="Peep" />
 				</form>
 			</div>
 		</div>
