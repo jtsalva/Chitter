@@ -1,0 +1,18 @@
+.peep {
+    font-size: 1.3em;
+}
+
+#peeps {
+    padding-top: 50px;
+}
+
+textarea.materialize-textarea {
+    background-color: white;
+    min-height: 100px;
+    font-size: 2em;
+    padding: 10px;
+}
+
+#submit-new-peep .btn {
+    color: white !important;
+}
